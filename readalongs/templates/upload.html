@@ -20,20 +20,21 @@
             Upload the text of your ReadAlong</h2>
         <p>You can upload text in a number of ways. You can upload plain text files (.txt), Microsoft Word Documents
             (.docx), or XML files (.xml)</p>
-        <form id='textForm'>
-            <input type="file" name="text" accept=".docx,.txt,.xml">
-            <input type="submit">
-        </form>
+        <form id='uploadForm'>
+        <!-- <form id='textForm'> -->
+            <input id='textForm' type="file" name="text" accept=".docx,.txt,.xml">
+            <!-- <input type="submit"> -->
+        <!-- </form> -->
     </div>
     <div class="container upload__audio">
         <h1 class="title">Audio</h1>
         <h2 class="subtitle">
             Upload the audio of your ReadAlong</h2>
         <p>You must upload your audio either as an mp3 or wav file.</p>
-        <form id='audioForm'>
-            <input type="file" name="audio" accept=".mp3,.wav">
-            <input type="submit"/>
-        </form>
+        <!-- <form id='audioForm'> -->
+            <input id='audioForm' type="file" name="audio" accept=".mp3,.wav">
+            <!-- <input type="submit"/> -->
+        <!-- </form> -->
     </div>
     <div class="container upload__audio">
         <h1 class="title">Mapping</h1>
@@ -53,12 +54,18 @@
             <option value="{{map['code']}}">{{ map['code'] + ' - ' + map['name'] }}</option>
             {% endfor %}
         </select>
-        <form id='mapForm'>
-            <input type="file" name="map" accept=".csv,.xlsx">
+        <!-- <form id='mapForm'> -->
+            <input id='mapForm' type="file" name="map" accept=".csv,.xlsx">
+            <h2 class="subtitle">
+                Once you've uploaded your files, click submit below</h2>
+            <!-- <p>You must upload your audio either as an mp3 or wav file.</p> -->
             <input type="submit">
-        </form>
+        
     </div>
-
+    <!-- <div class="container submit">
+        <input type="submit">
+    </div> -->
+    
     <div class="container uploaded">
         <h1 class="title">Uploaded Material</h1>
         <h2 class="subtitle">

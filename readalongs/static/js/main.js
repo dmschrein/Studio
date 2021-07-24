@@ -2,22 +2,31 @@
 
 function handleForm(event) {
     event.preventDefault();
-    files = []
-    for (var i = 0; i < event.target[0].files.length; i++) {
-        files.push(event.target[0].files[i])
-    }
-    if (event.srcElement.id === 'audioForm') {
-        files.forEach((file) => uploadFile(file, file['name'], 'audio'))
-    } else if (event.srcElement.id === 'textForm') {
-        files.forEach((file) => uploadFile(file, file['name'], 'text'))
-    } else if (event.srcElement.id === 'mapForm') {
-        files.forEach((file) => uploadFile(file, file['name'], 'mapping'))
-    }
+    // files = []
+    // for (var i = 0; i < event.target[0].files.length; i++) {
+    //     files.push(event.target[0].files[i])
+    // }
+    var audioFile = document.getElementById('audioForm').files[0];
+    var textFile = document.getElementById('textForm').files[0];
+    var mapFile = document.getElementById('mapForm').files[0];
+    
+    uploadFile(audioFile, audioFile['name'], 'audio');
+    uploadFile(textFile, textFile['name'], 'text');
+    uploadFile(mapFile, mapFile['name'], 'mapping');
+
+
+    //     files.forEach((file) => uploadFile(file, file['name'], 'audio'))
+    // } else if (event.srcElement.id === 'textForm') {
+    //     files.forEach((file) => uploadFile(file, file['name'], 'text'))
+    // } else if (event.srcElement.id === 'mapForm') {
+    //     files.forEach((file) => uploadFile(file, file['name'], 'mapping'))
+    
 }
 
 try {
+    document.getElementById('uploadForm').addEventListener('submit', handleForm)
     document.getElementById('audioForm').addEventListener('submit', handleForm)
-    document.getElementById('textForm').addEventListener('submit', handleForm)
+    // document.getElementById('textForm').addEventListener('submit', handleForm)
     document.getElementById('mapForm').addEventListener('submit', handleForm)
 } catch (error) {
     console.warn("forms not found, this is fine if you're not on step 1, otherwise it's an error.")

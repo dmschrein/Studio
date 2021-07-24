@@ -148,16 +148,16 @@ def update_config(message):
 
 @socketio.on("upload event", namespace="/file")
 def upload(message):
-    if message["type"] == "audio":
-        save_path = os.path.join(session["temp_dir"], message["name"])
-        session["audio"] = save_path
-    if message["type"] == "text":
-        save_path = os.path.join(session["temp_dir"], message["name"])
-        session["text"] = save_path
-    if message["type"] == "mapping":
-        save_path = os.path.join(session["temp_dir"], message["name"])
-        if "config" in session and "lang" in session["config"]["lang"]:
-            del session["config"]["lang"]
+    # if message["type"] == "audio":
+    save_path = os.path.join(session["temp_dir"], message["name"])
+    session["audio"] = save_path
+    # if message["type"] == "text":
+    save_path = os.path.join(session["temp_dir"], message["name"])
+    session["text"] = save_path
+    # if message["type"] == "mapping":
+    save_path = os.path.join(session["temp_dir"], message["name"])
+    if "config" in session and "lang" in session["config"]["lang"]:
+        del session["config"]["lang"]
         session["mapping"] = save_path
     with open(save_path, "wb") as f:
         f.write(message["data"]["file"])
